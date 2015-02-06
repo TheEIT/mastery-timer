@@ -14,7 +14,7 @@
 
 (def my-hours 5)
 
-(defn mastery-date [start-date hours-logged])
+(defn mastery-date [start-date hours-logged]
   (let [days-elapsed (t/in-days (t/interval start-date (t/today-at-midnight)))]
     (t/plus start-date (t/days (/ 10000 (/ hours-logged days-elapsed))))))
 
