@@ -1,0 +1,23 @@
+(ns mastery-timer.core
+  (:require [clj-time.core :as t]
+			[clj-time.format :as tf])
+  (:gen-class))
+  
+(def date-formatter (tf/formatters :rfc822))
+  
+(def my-start-date (t/date-midnight 2015 1 25))
+
+(def my-hours-logged 5)
+
+(defn mastery-date 
+      [start-date hours-logged]
+	  (let [days-elapsed (t/in-days (t/interval start-date (t/today-at-midnight)))]
+        (t/plus start-date (t/days (/ 10000 (/ hours-logged days-elapsed))))))
+
+(defn -main
+  "How far have we come?"
+  [& args]
+  ;; work around dangerous default behaviour in Clojure
+  (alter-var-root #'*read-eval* (constantly false))
+  (println "At this rate, you will log your 10,000th hour on")
+  (tf/unparse date-formatter (mastery-date my-start-date my-hours-logged)))
