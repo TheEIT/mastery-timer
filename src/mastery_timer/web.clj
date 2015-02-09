@@ -21,7 +21,7 @@
 (defn splash []
   {:status 200
    :headers {"Content-Type" "text/plain"}
-   :body (pr-str "At this rate, you will log your 10,000th hour on" 
+   :body (print "At this rate, you will log your 10,000th hour on " 
                  (tf/unparse date-formatter (mastery-date my-start my-hours)))})
 
 (defroutes app
