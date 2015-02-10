@@ -1,32 +1,10 @@
 # mastery-timer
 
-FIXME: description
-
-## Installation
-
-Download from http://example.com/FIXME.
+This is a Web app for tracking your progress towards mastering a skill, using the inevitably loose guideline of 10,000 hours of deliberate practice found in the psychological literature. Given the date you started, and the number of practice hours you have logged so far, it computes the date on which you can expect to reach the 10,000th hour at the rate you have been going.
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar mastery-timer-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+The app can be accessed at https://immense-oasis-9808.herokuapp.com if working. This version does not yet accept user input. It performs a computation on hardcoded values.
 
 ## License
 
