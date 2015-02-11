@@ -1,13 +1,13 @@
 (ns mastery-timer.core
   (:require [clj-time.core :as t]
-			[clj-time.format :as tf])
+            [clj-time.format :as tf])
   (:gen-class))
   
 (def date-formatter (tf/formatters :rfc822))
   
 (def my-start-date (t/date-midnight 2015 1 25))
 
-(def my-hours-logged 7)
+(def my-hours-logged 8)
 
 (defn mastery-date 
       [start-date hours-logged]
