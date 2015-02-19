@@ -12,7 +12,7 @@
   
 (def my-start (t/date-midnight 2015 1 25))
 
-(def my-hours 8)
+(def my-hours 9)
 
 (defn mastery-date [start-date hours-logged]
   (let [days-elapsed (t/in-days (t/interval start-date (t/today-at-midnight)))]
