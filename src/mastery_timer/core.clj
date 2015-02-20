@@ -7,7 +7,7 @@
   
 (def my-start-date (t/date-midnight 2015 1 25))
 
-(def my-hours-logged 9)
+(def my-hours-logged 10)
 
 (defn mastery-date 
       [start-date hours-logged]
