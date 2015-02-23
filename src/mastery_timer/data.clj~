@@ -1,0 +1,3 @@
+(ns mastery-timer.hours)
+
+(def my-hours {:hours 11})

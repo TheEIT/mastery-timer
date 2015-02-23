@@ -6,13 +6,12 @@
             [ring.adapter.jetty :as jetty]
             [environ.core :refer [env]]
 	    [clj-time.core :as t]
-            [clj-time.format :as tf]))
+            [clj-time.format :as tf]
+            [mastery-timer.data :as data]))
   
 (def date-formatter (tf/formatters :rfc822))
   
 (def my-start (t/date-midnight 2015 1 25))
-
-(def my-hours 11)
 
 (defn mastery-date [start-date hours-logged]
   (let [days-elapsed (t/in-days (t/interval start-date (t/today-at-midnight)))]
@@ -23,7 +22,7 @@
    :headers {"Content-Type" "text/plain"}
    :body (pr-str 
            (str "At this rate, you will log your 10,000th hour on " 
-                (tf/unparse date-formatter (mastery-date my-start my-hours))))})
+                (tf/unparse date-formatter (mastery-date my-start (:hours data/my-hours)))))})
 
 (defroutes app
   (GET "/" []
