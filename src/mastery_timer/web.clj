@@ -9,7 +9,7 @@
             [clj-time.format :as tf]
             [mastery-timer.data :as data]))
   
-(def date-formatter (tf/formatters "EEEE, MMMM dd, YYYY"))
+(def date-formatter (tf/formatter "EEEE, MMMM dd, YYYY"))
   
 (def my-start (t/date-midnight 2015 1 25))
 
