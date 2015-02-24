@@ -4,7 +4,7 @@
             [mastery-timer.data :as data])
   (:gen-class))
   
-(def date-formatter (tf/formatters :rfc822))
+(def date-formatter (tf/formatters "EEEE, MMMM dd, YYYY"))
   
 (def my-start-date (t/date-midnight 2015 1 25))
 
