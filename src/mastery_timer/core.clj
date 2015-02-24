@@ -19,4 +19,4 @@
   ;; work around dangerous default behaviour in Clojure
   (alter-var-root #'*read-eval* (constantly false))
   (println "At this rate, you will log your 10,000th hour on"
-    (tf/unparse date-formatter (mastery-date my-start-date (:hours data/my-hours)))))
+    (tf/unparse date-formatter (mastery-date data/my-start (:hours data/my-hours)))))

@@ -22,7 +22,7 @@
    :headers {"Content-Type" "text/plain"}
    :body (pr-str 
            (str "At this rate, you will log your 10,000th hour on " 
-                (tf/unparse date-formatter (mastery-date my-start (:hours data/my-hours)))))})
+                (tf/unparse date-formatter (mastery-date data/my-start (:hours data/my-hours)))))})
 
 (defroutes app
   (GET "/" []
