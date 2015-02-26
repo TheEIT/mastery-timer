@@ -1,0 +1,9 @@
+(ns mastery-timer.core-test
+  (:require [clojure.test :refer :all]
+            [clj-time.core :as t]
+            [clj-time.format :as tf]
+            [mastery-timer.core :refer :all]))
+
+(deftest date-computation-test
+  (testing "The computed date is correct"
+    (is (= 10000 (t/days ())))))
