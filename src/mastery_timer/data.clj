@@ -4,4 +4,4 @@
 
 (def my-start (t/date-midnight 2015 1 25))
 
-(def my-hours {:hours 12})
+(def my-hours {:hours 13})
