@@ -1,0 +1,2 @@
+{:testuserid {:name "Test User" :hours 17 :start-date [2015 1 25]}
+:another-uid {:name "Another User" :hours 3434 :start-date [1970 1 1]}}
