@@ -13,7 +13,7 @@
 (defn splash []
   {:status 200
    :headers {"Content-Type" "text/plain"}
-   :body (pr-str concluding-message date-formatter)})
+   :body (pr-str (concluding-message date-formatter))})
 
 (defroutes app
   (GET "/" []
