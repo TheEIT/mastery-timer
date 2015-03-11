@@ -5,24 +5,18 @@
             [clojure.java.io :as io]
             [ring.adapter.jetty :as jetty]
             [environ.core :refer [env]]
-	    [clj-time.core :as t]
+	        [clj-time.core :as t]
             [clj-time.format :as tf]
+			[mastery-timer.core :refer :all]
             [mastery-timer.data :as data]))
   
-(def date-formatter (tf/formatter "EEEE, MMMM dd, YYYY"))
-  
-(def my-start (t/date-midnight 2015 1 25))
-
-(defn mastery-date [start-date hours-logged]
-  (let [days-elapsed (t/in-days (t/interval start-date (t/today-at-midnight)))]
-    (t/plus start-date (t/days (/ 10000 (/ hours-logged days-elapsed))))))
-
 (defn splash []
   {:status 200
    :headers {"Content-Type" "text/plain"}
    :body (pr-str 
            (str "At this rate, you will log your 10,000th hour on " 
-                (tf/unparse date-formatter (mastery-date data/my-start (:hours data/my-hours)))))})
+                (tf/unparse date-formatter 
+				  (mastery-date data/my-start (:hours data/my-hours)))))})
 
 (defroutes app
   (GET "/" []

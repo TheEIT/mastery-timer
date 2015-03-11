@@ -6,8 +6,6 @@
   
 (def date-formatter (tf/formatter "EEEE, MMMM dd, YYYY"))
   
-(def my-start-date (t/date-midnight 2015 1 25))
-
 (defn mastery-date 
       [start-date hours-logged]
 	  (let [days-elapsed (t/in-days (t/interval start-date 
