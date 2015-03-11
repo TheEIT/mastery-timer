@@ -8,13 +8,13 @@
       [start-date hours-logged]
 	  (let [days-elapsed (t/in-days (t/interval start-date 
 	                                            (t/today-at-midnight)))]
-        (t/plus start-date (t/days (* 0.0001 (/ hours-logged days-elapsed))))))
+        (t/plus start-date (t/days (/10000 (/ hours-logged days-elapsed))))))
 
 (def date-formatter (tf/formatter "EEEE, MMMM dd, YYYY"))
 
 (defn concluding-message [fmtr]
   (try 
-    (str "At this rate, you will log your 10,000th hour on" 
+    (str "At this rate, you will log your 10,000th hour on " 
       (tf/unparse fmtr (mastery-date data/my-start (:hours data/my-hours))))
     (catch ArithmeticException e "We could not compute your final date")))
 

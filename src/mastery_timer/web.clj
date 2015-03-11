@@ -7,7 +7,7 @@
             [environ.core :refer [env]]
 	        [clj-time.core :as t]
             [clj-time.format :as tf]
-			[mastery-timer.core :refer :all :except -main]
+			[mastery-timer.core :refer :all :exclude (-main)]
             [mastery-timer.data :as data]))
   
 (defn splash []
