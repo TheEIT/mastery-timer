@@ -10,13 +10,14 @@
                  (t/plus (t/today-at-midnight) (t/days 10000))))))
 
 (deftest edn-datastore-test
-  (testing "The EDN datastore is to"
-    (testing "receive legible input"
-	  (is false))
-    (testing "provide legible output"
-      (let [{:keys [testuserid]} 
-	            (read-string (slurp "test/mastery_timer/testdata.edn"))]
-        (is (= 18 (:hours testuserid)))
-        (is (= "Sunday, January 25, 2015" 
-               (tf/unparse date-formatter 
-                 (apply t/date-midnight (:start-date testuserid)))))))))
+  (testing "Data added to the datastore should be accurately retrievable"
+    (spit "test/mastery_timer/testdata.edn" {})
+	(let [test-params 
+	      {:testuserid {:name "Test User" :hours 18 :start-date [2015 1 25]}}]
+	  (spit "test/mastery_timer/testdata.edn" (core-input test-params)))
+    (let [{:keys [testuserid]} 
+	      (read-string (slurp "test/mastery_timer/testdata.edn"))]
+      (is (= 18 (:hours testuserid)))
+      (is (= "Sunday, January 25, 2015" 
+             (tf/unparse date-formatter 
+			             (apply t/date-midnight (:start-date testuserid))))))))

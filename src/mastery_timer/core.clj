@@ -4,11 +4,12 @@
             [mastery-timer.data :as data])
   (:gen-class))
   
-(defn mastery-date 
-      [start-date hours-logged]
-	  (let [days-elapsed (t/in-days (t/interval start-date 
-	                                            (t/today-at-midnight)))]
-        (t/plus start-date (t/days (/ 10000 (/ hours-logged days-elapsed))))))
+(defn mastery-date [start-date hours-logged]
+  (let [days-elapsed (t/in-days (t/interval start-date (t/today-at-midnight)))]
+       (t/plus start-date (t/days (/ 10000 (/ hours-logged days-elapsed))))))
+		
+(defn core-input [& params]
+  (eval params))
 
 (def date-formatter (tf/formatter "EEEE, MMMM dd, YYYY"))
 
