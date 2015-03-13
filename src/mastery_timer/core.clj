@@ -8,8 +8,9 @@
   (let [days-elapsed (t/in-days (t/interval start-date (t/today-at-midnight)))]
        (t/plus start-date (t/days (/ 10000 (/ hours-logged days-elapsed))))))
 		
-(defn core-input [& params]
-  (eval params))
+(defn core-input 
+  ([] (core-input [{:newuser {:start t/today-at-midnight :hours 0}}]))
+  ([params] params))
 
 (def date-formatter (tf/formatter "EEEE, MMMM dd, YYYY"))
 
